@@ -5,21 +5,12 @@ import type {
   Priority
 } from "./types";
 
+import { timeToMinutes, minutesToTime } from "./utils";
+
 const priorityOrder: Record<Priority, number> = {
   STAT: 1,
   URGENT: 2,
   ROUTINE: 3
-};
-
-const timeToMinutes = (time: string): number => {
-  const [h, m] = time.split(":").map(Number);
-  return h * 60 + m;
-};
-
-const minutesToTime = (minutes: number): string => {
-  const h = Math.floor(minutes / 60);
-  const m = minutes % 60;
-  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 };
 
 export const planifyLab = (data: LabData): PlanifyResult => {
