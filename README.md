@@ -133,26 +133,6 @@ Une incohérence a été identifiée entre les versions du sujet :
 
 ---
 
-## 📊 Calcul des métriques
-
-### Efficacité globale
-
-L’efficacité est calculée selon la formule officielle :
-
-```text
-efficiency =
-  (Σ temps d’occupation des techniciens /
-   (nombre de techniciens × durée totale du planning)) × 100
-```
-
-Cette approche garantit :
-
-* une efficacité ≤ 100 %
-* une prise en compte correcte du parallélisme
-* aucune surévaluation artificielle des performances
-
----
-
 ## 🧪 Tests
 
 * Tests unitaires sur la fonction `planifyLab`
