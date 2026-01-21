@@ -91,7 +91,7 @@ Des extensions intermédiaires ont été amorcées :
   * nettoyage des équipements
   * métriques avancées
 
-Pour cette partie, je n’ai pas pu produire l’algorithme complet. J’ai toutefois pris soin de **structurer les fichiers JSON des échantillons, techniciens et équipements**, de façon à ce qu’on puisse ensuite récupérer les données correspondantes pour chaque niveau d’exemple (progressif niveau 1 à 3) et tester les extensions intermédiaires.
+Pour cette partie, je n’ai pas pu produire l’algorithme complet. J’ai toutefois pris soin de structurer les fichiers JSON des échantillons, techniciens et équipements, de façon à ce qu’on puisse ensuite récupérer les données correspondantes pour chaque niveau d’exemple (progressif niveau 1 à 3) et tester les extensions intermédiaires. Dans le feu de l’action, j’ai oublié que des jeux de données contenant déjà des équipements nous avaient été fournis, que j’aurais pu utiliser pour créer un dossier avec les différents JSON et chercher directement les données dans ces fichiers.
 
 ---
 
