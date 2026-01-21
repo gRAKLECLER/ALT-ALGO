@@ -40,7 +40,7 @@ export const planifyLab = (data: LabData): PlanifyResult => {
       t.specialty.includes(sample.type) || t.specialty.includes("GENERAL")
     );
 
-    const equipment = data.equipment ? data.equipment.find(e => e.type === sample.type) : [];
+    const equipment = data.equipment.find(e => e.type === sample.type);
 
     if (!technician || !equipment) {
       throw new Error(`Ressource indisponible pour ${sample.id}`);
@@ -62,7 +62,7 @@ export const planifyLab = (data: LabData): PlanifyResult => {
     const end = start + adjustedDuration;
 
     techBusy[technician.id].push([start, end]);
-    equipBusy[equipment.id].push([start, end + (equipment.cleaningTime)]);
+    equipBusy[equipment.id].push([start, end + (equipment.cleaningTime ?? 0)]);
 
     schedule.push({
       sampleId: sample.id,
@@ -115,13 +115,12 @@ export const planifyLab = (data: LabData): PlanifyResult => {
   const averageWaitTime =
     Math.round((totalWait / schedule.length) * 10) / 10;
 
-  // Respect des priorités
   let respected = 0;
   for (let i = 0; i < schedule.length - 1; i++) {
     if (
-      priorityOrder[schedule[i].priority] <=
-      priorityOrder[schedule[i + 1].priority]
-    ) {
+      priorityOrder[schedule[i].priority as Priority] <=
+      priorityOrder[schedule[i + 1].priority as Priority]
+    ){
       respected++;
     }
   }
@@ -131,7 +130,6 @@ export const planifyLab = (data: LabData): PlanifyResult => {
       ? Math.round((respected / (schedule.length - 1)) * 100)
       : 100;
 
-  // Analyses parallèles max
   let parallelEfficiency = 0;
 
   for (let i = 0; i < schedule.length; i++) {

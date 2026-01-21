@@ -1,14 +1,14 @@
 // types.ts
 
 export type Priority = "STAT" | "URGENT" | "ROUTINE";
-export type specialty = "BLOOD" | "URINE" | "TISSUE" | "CHEMISTRY" | "MICROBIOLOGY" | "IMMUNOLOGY" | "GENERAL";
+export type Specialty = "BLOOD" | "URINE" | "TISSUE" | "CHEMISTRY" | "MICROBIOLOGY" | "IMMUNOLOGY" | "GENERAL";
 
 // probleme de nomage dans les exemple speciality basic --> specialty inter
 
 // Échantillon
 export interface Sample {
   id: string;
-  type: specialty;
+  type: Specialty;
   priority: Priority;
   analysisTime: number; // minutes
   arrivalTime: string; // "HH:MM"
@@ -19,7 +19,7 @@ export interface Sample {
 // Technicien
 export interface Technician {
   id: string;
-  specialty: specialty | specialty[];
+  specialty: Specialty | Specialty[];
   name?: string;
   startTime?: string;
   endTime?: string;
@@ -31,12 +31,13 @@ export interface Technician {
 export interface Equipment {
   id: string;
   name?: string;
-  type: specialty;
+  type?: Specialty;       // attention au S majuscule dans le type
   available?: boolean;
-  cleaningTime?: number; // temps de nettoyage entre échantillons (minutes)
-  capacity?: number;     // nb max d'analyses simultanées
-  maintenance?: string[]; // ["HH:MM-HH:MM", ...]
+  cleaningTime?: number; // minutes
+  capacity?: number;
+  maintenance?: string[];
 }
+
 
 // Planification
 export interface ScheduleItem {

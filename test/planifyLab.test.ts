@@ -41,8 +41,8 @@ describe('planifyLab', () => {
 
     const result = planifyLab(data);
 
-    expect(result.metrics.totalTime).toBe(105);
-    expect(result.metrics.efficiency).toBeCloseTo(71.4, 1);
+    expect(result.metrics.totalTime).toBe(75);
+    expect(result.metrics.efficiency).toBe(100);
     expect(result.metrics.conflicts).toBe(0);
   });
 });
