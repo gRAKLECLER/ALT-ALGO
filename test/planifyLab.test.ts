@@ -25,7 +25,7 @@ describe('planifyLab', () => {
       technicians: [
         {
           id: 'T001',
-          speciality: 'BLOOD',
+          specialty: 'BLOOD',
           startTime: '08:00',
           endTime: '17:00'
         }
