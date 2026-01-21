@@ -91,15 +91,15 @@ Des extensions intermédiaires ont été amorcées :
   * nettoyage des équipements
   * métriques avancées
 
-Cependant, la version intermédiaire **ne peut pas être entièrement produite** pour des raisons externes au code.
+Pour cette partie, je n’ai pas pu produire l’algorithme complet. J’ai toutefois pris soin de **structurer les fichiers JSON des échantillons, techniciens et équipements**, de façon à ce qu’on puisse ensuite récupérer les données correspondantes pour chaque niveau d’exemple (progressif niveau 1 à 3) et tester les extensions intermédiaires.
 
 ---
 
 ## ⚠️ Imprévus et limitations rencontrées
 
 ### ❌ Données intermédiaires incomplètes
-
-Certains jeux de données intermédiaires fournis dans le sujet contiennent :
+Dans ma logique avec les exemple progressif et sans les donnée fourni,
+certains jeux de données intermédiaires fournis contiennent :
 
 ```json
 "equipment": []
@@ -110,7 +110,7 @@ Or, selon les règles métier :
 > Une analyse nécessite obligatoirement un équipement compatible.
 
 ➡️ **Aucun planning valide ne peut être généré** dans ce cas.
-Le programme lève donc volontairement l’erreur :
+Le programme lève volontairement l’erreur :
 
 ```text
 Ressource indisponible pour SXXX
@@ -159,3 +159,4 @@ Cette approche garantit :
 * Cas nominaux
 * Cas d’erreur (ressources manquantes)
 * Vérification de la cohérence des métriques
+
